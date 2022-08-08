@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="container">
+    <div class="text-lg-end">
+      <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: 'delete', class: 'mt-2 mx-5 btn btn-secondary' %>
+      <% end %>
+    </div>
+    <div class="mx-5 mt-5">
+      <%= yield %>
+    </div>
+  </body>
+</html>

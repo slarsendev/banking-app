@@ -1,0 +1,21 @@
+<h1 class='text-center'>Account Details</h1>
+
+<div class='container'>
+  <table class=table>
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>Bank Account Balance</th>
+      <th>All transactions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @user.email %></td>
+        <td><%= @user.bank_account.balance %></td>
+        <td><%= link_to 'View', user_transactions_path(current_user), class: 'mx-5 btn btn-secondary' %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

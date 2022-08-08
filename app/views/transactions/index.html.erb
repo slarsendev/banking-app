@@ -1,0 +1,30 @@
+<h1 class='text-center'>Transactions</h1>
+
+<div class='container'>
+  <table class=table>
+    <thead>
+    <tr>
+      <th>Bank Account</th>
+      <th>History</th>
+      <th>Amount</th>
+      <th>Transaction Type</th>
+      <th>Mode</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.bank_account_id %></td>
+        <td><%= transaction.history %></td>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.trans_type %></td>
+        <td><%= transaction.trans_mode %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= link_to 'Instant Money transfer', new_user_transaction_path(current_user), class: 'btn btn-secondary' %>
+  </div>
+</div>

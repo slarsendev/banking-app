@@ -1,0 +1,26 @@
+<% flash.each do |key, msg| %>
+  <% if key == "error" %>
+    <div class="alert alert-warning">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= form_with model: @transaction, url: transfer_money_user_transactions_path(current_user), local: true do |form| %>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, autofocus: true %>
+  </div>
+
+  <div>
+    <% users_emails = User.all.pluck(:email) %>
+    <%= form.label :transfer_to %>
+    <%= form.select :transfer_to , options_for_select(users_emails) %>
+  </div>
+
+  <p>
+    <br>
+    <%= form.submit %>
+  </p>
+<% end %>
